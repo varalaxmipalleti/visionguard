@@ -5,7 +5,7 @@ import { Card } from "@/components/ui/card";
 import { Cpu, Eye, Save, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
 import { useAuth } from "@/context/auth-context";
 
-const API_BASE = "http://127.0.0.1:8000/api/v1";
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000/api/v1";
 
 const COLOR_SPACES = [
   "YCbCr + HSV (Dual Consensus)",

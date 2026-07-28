@@ -9,7 +9,7 @@ import {
 import { useAuth } from "@/context/auth-context";
 import { useRouter } from "next/navigation";
 
-const API_BASE = "http://127.0.0.1:8000/api/v1";
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000/api/v1";
 
 export default function DynamicDashboard() {
   const { token, user } = useAuth();

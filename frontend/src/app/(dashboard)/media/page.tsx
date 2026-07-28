@@ -64,8 +64,8 @@ export default function MediaAnalysisPage() {
     formData.append("file", fileToProcess);
 
     try {
-      // Connect directly to normal local FastAPI port 8000
-      const response = await fetch("http://localhost:8000/api/v1/media/inspect", {
+      const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api/v1";
+      const response = await fetch(`${baseUrl}/media/inspect`, {
         method: "POST",
         body: formData,
       });

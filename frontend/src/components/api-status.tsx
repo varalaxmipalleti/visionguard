@@ -13,8 +13,8 @@ export function ApiStatus() {
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 2500);
 
-        // Ping backend API to verify connectivity
-        const res = await fetch("http://127.0.0.1:8000/", {
+        const baseUrl = (process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000/api/v1").replace("/api/v1", "");
+        const res = await fetch(`${baseUrl}/`, {
           method: "GET",
           signal: controller.signal,
           headers: {

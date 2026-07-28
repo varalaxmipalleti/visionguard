@@ -8,7 +8,7 @@ import {
   Loader2, AlertCircle, CheckCircle2, UserX, Trash2
 } from "lucide-react";
 
-const API_BASE = "http://127.0.0.1:8000/api/v1";
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000/api/v1";
 
 interface UserRecord {
   id: number;

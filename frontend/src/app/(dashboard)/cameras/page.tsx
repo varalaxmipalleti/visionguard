@@ -16,7 +16,8 @@ export default function LiveCameras() {
 
   const stopRemoteStream = useCallback(async (targetUrl: string) => {
     try {
-      await fetch(`http://localhost:8000/api/v1/cameras/stop-ip-stream?url=${encodeURIComponent(targetUrl)}`, {
+      const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api/v1";
+      await fetch(`${baseUrl}/cameras/stop-ip-stream?url=${encodeURIComponent(targetUrl)}`, {
         method: "POST",
       });
     } catch (err) {
@@ -198,7 +199,7 @@ export default function LiveCameras() {
 
                   {/* High definition video stage without clunky overlapping tags */}
                   <img
-                    src={`http://localhost:8000/api/v1/cameras/live-ip-stream?url=${encodeURIComponent(activeStream)}&t=${streamKey}`}
+                    src={`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api/v1"}/cameras/live-ip-stream?url=${encodeURIComponent(activeStream)}&t=${streamKey}`}
                     alt="Live AI Surveillance Stream"
                     onLoad={() => setIsStreamLoading(false)}
                     onError={() => setIsStreamLoading(false)}

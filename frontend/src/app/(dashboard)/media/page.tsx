@@ -3,6 +3,7 @@
 import { useState, useRef } from "react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { getApiBaseUrl } from "@/lib/utils";
 import {
   UploadCloud,
   FileImage,
@@ -64,7 +65,7 @@ export default function MediaAnalysisPage() {
     formData.append("file", fileToProcess);
 
     try {
-      const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api/v1";
+      const baseUrl = getApiBaseUrl();
       const response = await fetch(`${baseUrl}/media/inspect`, {
         method: "POST",
         body: formData,

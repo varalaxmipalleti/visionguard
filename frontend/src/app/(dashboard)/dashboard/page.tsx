@@ -8,8 +8,9 @@ import {
 } from "lucide-react";
 import { useAuth } from "@/context/auth-context";
 import { useRouter } from "next/navigation";
+import { getApiBaseUrl } from "@/lib/utils";
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000/api/v1";
+const API_BASE = getApiBaseUrl();
 
 export default function DynamicDashboard() {
   const { token, user } = useAuth();

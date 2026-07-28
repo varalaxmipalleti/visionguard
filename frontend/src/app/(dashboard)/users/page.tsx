@@ -7,8 +7,9 @@ import {
   Users2, RefreshCw, ShieldCheck,
   Loader2, AlertCircle, CheckCircle2, UserX, Trash2
 } from "lucide-react";
+import { getApiBaseUrl } from "@/lib/utils";
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000/api/v1";
+const API_BASE = getApiBaseUrl();
 
 interface UserRecord {
   id: number;

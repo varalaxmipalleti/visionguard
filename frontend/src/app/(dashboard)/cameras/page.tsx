@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Smartphone, Laptop, Power, VideoOff, Activity, Sliders } from "lucide-react";
+import { getApiBaseUrl } from "@/lib/utils";
 
 export default function LiveCameras() {
   const [streamMode, setStreamMode] = useState<"droidcam" | "webcam">("webcam");
@@ -16,7 +17,7 @@ export default function LiveCameras() {
 
   const stopRemoteStream = useCallback(async (targetUrl: string) => {
     try {
-      const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api/v1";
+      const baseUrl = getApiBaseUrl();
       await fetch(`${baseUrl}/cameras/stop-ip-stream?url=${encodeURIComponent(targetUrl)}`, {
         method: "POST",
       });
@@ -199,7 +200,7 @@ export default function LiveCameras() {
 
                   {/* High definition video stage without clunky overlapping tags */}
                   <img
-                    src={`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api/v1"}/cameras/live-ip-stream?url=${encodeURIComponent(activeStream)}&t=${streamKey}`}
+                    src={`${getApiBaseUrl()}/cameras/live-ip-stream?url=${encodeURIComponent(activeStream)}&t=${streamKey}`}
                     alt="Live AI Surveillance Stream"
                     onLoad={() => setIsStreamLoading(false)}
                     onError={() => setIsStreamLoading(false)}

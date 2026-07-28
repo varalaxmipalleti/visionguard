@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { getApiBaseUrl } from "@/lib/utils";
 
 export function ApiStatus() {
   const [isConnected, setIsConnected] = useState<boolean>(false);
@@ -13,7 +14,7 @@ export function ApiStatus() {
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 2500);
 
-        const baseUrl = (process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000/api/v1").replace("/api/v1", "");
+        const baseUrl = getApiBaseUrl().replace(/\/api\/v1\/?$/, "");
         const res = await fetch(`${baseUrl}/`, {
           method: "GET",
           signal: controller.signal,

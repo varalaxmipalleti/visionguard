@@ -7,8 +7,9 @@ import {
   Award, LogOut, KeyRound, Trash2, Eye, EyeOff, AlertCircle, Loader2, Circle
 } from "lucide-react";
 import { useAuth } from "@/context/auth-context";
+import { getApiBaseUrl } from "@/lib/utils";
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000/api/v1";
+const API_BASE = getApiBaseUrl();
 
 export default function ProfilePage() {
   const { user, token, logout } = useAuth();

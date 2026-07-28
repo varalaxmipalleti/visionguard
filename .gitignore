@@ -1,0 +1,113 @@
+# ==========================================
+# VisionGuard AI — Monorepo .gitignore
+# ==========================================
+
+# --- Node / Frontend Dependencies & Build ---
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+.pnpm-debug.log*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# Next.js Build Outputs
+/.next/
+/out/
+/build/
+/dist/
+*.tsbuildinfo
+next-env.d.ts
+
+# --- Python / Backend Virtual Environments & Caches ---
+venv/
+.venv/
+env/
+.env/
+ENV/
+env.bak/
+venv.bak/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# --- Machine Learning / Heavy AI Model Files ---
+# Ignore heavy downloaded weight files (Ultralytics auto-downloads yolo11n.pt on first run)
+*.pt
+*.pth
+*.onnx
+*.engine
+*.weights
+*.tflite
+*.pb
+*.h5
+*.keras
+models/*.pt
+
+# --- User Uploads & Media Files ---
+uploads/*
+!uploads/.gitkeep
+media/*
+!media/.gitkeep
+
+# --- Environment Variables & Secrets (CRITICAL FOR SECURITY) ---
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+*.pem
+*.key
+*.cert
+*.secret
+
+# --- Databases & Logs ---
+*.sqlite
+*.sqlite3
+*.db
+*.log
+logs/
+*.csv
+*.pdf
+
+# --- IDE & OS System Files ---
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.gemini/
+.agents/
+.cursor/
+.antigravityignore

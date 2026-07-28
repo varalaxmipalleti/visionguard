@@ -1,0 +1,35 @@
+# Python Virtual Environments
+venv/
+.venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+
+# Heavy Machine Learning Model Weights (Ultralytics auto-downloads on startup)
+*.pt
+*.pth
+*.onnx
+*.engine
+*.weights
+
+# Uploaded Video & Image Files
+uploads/*
+!uploads/.gitkeep
+
+# Environment & Sensitive Files
+.env
+*.env
+*.log
+*.db
+*.sqlite3
+
+# IDE & OS Files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
